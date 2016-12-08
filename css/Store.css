@@ -1,0 +1,174 @@
+﻿.bill_panel_out {
+}
+
+.bill_from_group {
+    width: 100%;
+    text-align: right;
+    background-color: #fff;
+    margin-bottom: 0px;
+    padding: 15px;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.list_product_page {
+    height: 175px;
+    overflow-y: scroll;
+}
+
+.list_product_item {
+    width: 100%;
+    margin-top: 1px;
+}
+
+.list_product_item_tt {
+    width: 8%;
+    float: left;
+    border: solid 1px #f3f1f1;
+    border-right: none;
+    border-top: none;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
+.list_product_item_n {
+    width: 74%;
+    float: left;
+    border: solid 1px #f3f1f1;
+    padding-left: 0px;
+    border-top: none;
+    overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.list_product_item_nb {
+    width: 8%;
+    float: left;
+    border: solid 1px #f3f1f1;
+    border-left: none;
+    overflow: hidden;
+    text-align: center;
+    border-top: none;
+    height: 30px;
+    line-height: 30px;
+}
+
+.list_product_item_pr {
+    width: 10%;
+    float: right;
+    border: solid 1px #f3f1f1;
+    overflow: hidden;
+    height: 30px;
+    border-top: none;
+    line-height: 30px;
+    text-align: right;
+}
+
+.list_product_item_bx {
+    Width: 100%;
+    Height: 26px;
+}
+
+.table_header_item {
+    float: left;
+    border: solid 1px #f3f1f1;
+    border-right: none;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+
+.table_header_item1 {
+    float: left;
+    border: solid 1px #f3f1f1;
+    font-weight: bold;
+    padding-left: 6px;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+    text-align: center;
+}
+
+.table_header_item2 {
+    float: left;
+    border: solid 1px #f3f1f1;
+    font-weight: bold;
+    border-left: none;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+
+.table_header_item {
+    float: left;
+    border: solid 1px #f3f1f1;
+    border-left: none;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+
+.btn_tbl_hd {
+    border: solid 1px #f8fbfc;
+    padding: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.pdl0 {
+    padding: 0px;
+    padding-left: 0px;
+}
+
+.pd8l0 {
+    padding: 8px;
+    padding-left: 0px;
+}
+
+.pgrp_post {
+    width: 100%;
+    text-align: right;
+    background-color: #f7eaea;
+    margin-bottom: 0px;
+}
+
+.pgrp2_post {
+    width: 100%;
+    text-align: right;
+    background-color: #fff;
+    margin-bottom: 0px;
+}
+
+.lbip_post {
+    width: 150px;
+    text-align: justify;
+}
+
+.ipgr_post
+{
+    height: 35px; line-height: 35px; width: 100%; font-size: 15px; font-family: Arial;
+}

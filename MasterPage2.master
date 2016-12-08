@@ -1,0 +1,74 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>QUẢN LÝ CỬA HÀNG</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/Adminstyles.css" rel="stylesheet" />
+    <link href="~/SMC.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link href="http://fonts.googleapis.com/css?family=Bitter&subset=latin" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/css/ultimatedropdown.css" />
+    <script src="http://www.sucmanhcong.com/js/jquery.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/balloontip.css" />
+    <script type="text/javascript" src="/css/balloontip.js">
+    /***********************************************
+    * Rich HTML Balloon Tooltip- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+    * Please keep this notice intact
+    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+    ***********************************************/
+    </script>
+</head>
+<body style="overflow: auto; margin: 3px; margin-top: 0px; background-color: #ecf0f5;">
+    <form id="form1" runat="server">
+        <div style="background-color: #3c8dbc; margin-top: 3px; line-height: 36px; height: 36px; width: 100%; text-align: center; font-family: Arial; font-size: 15px; font-weight: bold; color: #fff;">
+            <div style="width: 50%; float: left;">
+                <div style="width: 100%; float: left; background-color: #3c8dbc; font-family: Arial; font-size: 15px; color: #fff; text-align:justify; padding-left:10px;">
+                    <% Response.Write(this.strName.ToUpper()); %>
+                </div>
+            </div>
+            <div style="width: 50%; float: right; background-color: #3c8dbc; text-align: right; color: #fff;" class="Logout">
+                <% Response.Write(strFullName); %>
+            </div>
+        </div>
+        <div style="width: 100%; margin-top: 10px;">
+            <div style="width: 20%; float: left;">
+                <div class="SystemLeftMenuMobile" style="height: 120px;">
+                    <asp:Label ID="lblImg1" runat="server" Text=""></asp:Label>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/Default.aspx"> Hồ sơ cửa hàng</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/Product.aspx"> Quản trị gian hàng</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/Sell.aspx"> Quản trị bán hàng</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/History.aspx"> Nhật ký bán hàng</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/PartnerEdit.aspx"> Cập nhật hồ sơ</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/Summary.aspx"> Thông tin tích luỹ</a>
+                </div>
+                <div class="SystemLeftMenuMobile">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mStore/ResetPassword.aspx"> Thay đổi mật khẩu</a>
+                </div>
+            </div>
+            <div style="width: 80%; float: right; padding-left: 10px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>QUẢN TRỊ HỆ THỐNG</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="css/Adminstyles.css" rel="stylesheet" />
+    <link href="css/System.css" rel="stylesheet" />
+</head>
+<body style="overflow: auto; margin: 3px; margin-top:0px; background-color:#ecf0f5;">
+    <form id="form1" runat="server">
+        <div class="header" style="background-color: #808080; margin-top:3px; line-height: 36px; height: 36px; width: 100%; text-align: center; font-family: Arial; font-size: 15px; font-weight: bold; color: #fff;">
+            <div style="width: 20%; float: left;">
+                <div style="width: 100%; float: left; background-color: #367fa9; font-family: Arial; font-size: 15px; color:#fff;">
+                    QUẢN TRỊ HỆ THỐNG
+                </div>
+            </div>
+            <div style="width: 80%; float: right; background-color:#3c8dbc;">
+                &nbsp;
+            </div>
+        </div>
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div style="width: 100%; height: 30px; line-height: 30px; margin-top: 5px;">
+            <div style="width: 20%; float: left;">
+                <div class="SystemLeftMenuRoot">
+                    &nbsp;&nbsp;+ CẤU HÌNH HỆ THỐNG
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "SystemConfig.aspx">Cấu hình hệ thống</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "#">Cấu hình Menu</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Abouts.aspx">Thông tin đơn vị</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "ListGroupAcc.aspx">Nhóm tài khoản</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "ListAccount.aspx">Tài khoản người dùng</a>
+                </div>
+                <div style ="background-color:#fff; height:1px; line-height:1px; display:table; margin-bottom:-1px;">
+                    &nbsp;
+                </div>
+                <div class="SystemLeftMenuRoot">
+                    &nbsp;&nbsp;+ QUẢN TRỊ NỘI DUNG
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Partner.aspx">Cửa hàng - đối tác</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Customer.aspx">Thành viên</a>
+                </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "#">Nhân viên - Cộng tác viên</a>
+                </div>
+                 <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Topic.aspx">Tin tức</a>
+                </div>
+                 <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "ProductGroup.aspx">Nhóm sản phẩm</a>
+                </div>
+                 <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Product.aspx">Sản phẩm</a>
+                </div>
+                  <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "SlideImage.aspx">Slide - Banner</a>
+                </div>
+            </div>
+            <div style="width: 79%; float: right; padding-left:5px; padding-right:5px;">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
