@@ -11,6 +11,7 @@ public partial class VideoEdit : System.Web.UI.Page
 {
     #region declare objects
     private int itemId = 0;
+    private Video vd = new Video();
     #endregion
 
     #region method Page_Load
@@ -31,8 +32,32 @@ public partial class VideoEdit : System.Web.UI.Page
     }
     #endregion
 
-    #region method getVideo
-    public void getVideo()
+
+    #region menthod getVideobyId
+    public int getVideo()
+    {
+
+        try
+        {       
+            vd.getVideo(this.itemId);
+        }
+     catch
+        {
+            throw new Exception("Khong tim thay id");
+            //return -1;
+           
+        }
+        // set object
+        this.txtName.Text = vd.getName();
+        this.txtUrl.Text = vd.getUrl();
+        this.ckbState.Checked = vd.getState();
+        return 1;
+    }
+
+#endregion
+
+    #region method getVideo  === old
+    public void getVideo_old()
     {
         SqlConnection sqlCon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["TVSConn"].ConnectionString);
         sqlCon.Open();
@@ -59,8 +84,24 @@ public partial class VideoEdit : System.Web.UI.Page
     }
     #endregion
 
-    #region method setVideo
-    public void setVideo()
+    #region method setVideo by id,name,url,state return exeption
+    public int  setVideo()
+    {
+        Video vd = new Video();
+        try { 
+        vd.setVideo(this.itemId, this.txtUrl.Text, this.txtName.Text, this.ckbState.Checked);
+        }
+        catch
+        {
+            return -1;
+            throw new Exception("");
+        }
+        return 1;
+    }
+    #endregion
+
+    #region method setVideo === old
+    public void setVideo_old()
     {
         try
         {
@@ -91,7 +132,9 @@ public partial class VideoEdit : System.Web.UI.Page
     #region method btnSave_Click
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        this.setVideo();
+
+       if( this.setVideo() < 0) throw new Exception("");
+
     } 
     #endregion
 

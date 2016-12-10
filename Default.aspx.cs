@@ -20,26 +20,28 @@ public partial class _Default : Page
     #region method Page_Load
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if (!Page.IsPostBack)
-        //{
-            this.objTableProductGroup = this.getProductGroup();
-            if (this.objTableProductGroup.Rows.Count > 0)
-            {
-                for (int i = 0; i < this.objTableProductGroup.Rows.Count; i++)
-                {
-                    this.ProductGroup[i] = this.objTableProductGroup.Rows[i]["Name"].ToString();
-                }
-            }
+        
 
-            this.objTableNews = this.getTopic();
+        ////if (!Page.IsPostBack)
+        ////{
+        //    this.objTableProductGroup = this.getProductGroup();
+        //    if (this.objTableProductGroup.Rows.Count > 0)
+        //    {
+        //        for (int i = 0; i < this.objTableProductGroup.Rows.Count; i++)
+        //        {
+        //            this.ProductGroup[i] = this.objTableProductGroup.Rows[i]["Name"].ToString();
+        //        }
+        //    }
 
-            this.objTableProductVIP = this.getProductVIP();
+        //    this.objTableNews = this.getTopic();
 
-            this.dtlBestSale.DataSource = this.getProductBestSale();
-            this.dtlBestSale.DataBind();
+        //    this.objTableProductVIP = this.getProductVIP();
 
-            this.objTablePartner = this.getPartner();
-        //}
+        //    this.dtlBestSale.DataSource = this.getProductBestSale();
+        //    this.dtlBestSale.DataBind();
+
+        //    this.objTablePartner = this.getPartner();
+        ////}
     } 
     #endregion
 

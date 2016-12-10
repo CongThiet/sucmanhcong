@@ -90,6 +90,9 @@
                   <div class = "SystemLeftMenu">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "SlideImage.aspx">Slide - Banner</a>
                 </div>
+                <div class = "SystemLeftMenu">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "Video.aspx">Video - Media</a>
+                </div>
             </div>
             <div style="width: 79%; float: right; padding-left:5px; padding-right:5px;">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

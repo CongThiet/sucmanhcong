@@ -79,6 +79,7 @@ public partial class SiteMaster : MasterPage
     #region method Page_Load
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (Session["ACCOUNT"] == null || Session["ACCOUNT"].ToString() == "")
         {
             strHeader = "&nbsp;&nbsp;|&nbsp;&nbsp;<a href=\"#\" id=\"searchlink1\" rel=\"subcontent1\">Đăng kí &nbsp;|&nbsp; </a><a href=\"../login.aspx\">&nbsp;Đăng nhập</a>";

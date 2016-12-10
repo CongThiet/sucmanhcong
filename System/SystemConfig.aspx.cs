@@ -11,6 +11,7 @@ public partial class SystemConfig : System.Web.UI.Page
 {
     #region declare objects
     private int itemId = 0;
+    private SystemConfigs sc = new SystemConfigs();
     #endregion
 
     #region method Page_Load
@@ -22,18 +23,19 @@ public partial class SystemConfig : System.Web.UI.Page
         }
         catch
         {
-            this.itemId = 0;
+            this.itemId = 1 ;       // 1 is default
         }
         if (!Page.IsPostBack)
         {
-            this.getCustomer();
+           getCustomer(itemId);
         }
     }
     #endregion
 
-    #region method setCustomer
-    public void setCustomer()
+    #region checkInput()
+    public void checkInput()
     {
+
         try
         {
             this.lblMsg.Text = "";
@@ -72,58 +74,68 @@ public partial class SystemConfig : System.Web.UI.Page
                 this.lblMsg.Text = "Bạn chưa nhập mức giảm giá thành viên";
                 return;
             }
-            SqlConnection sqlCon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["TVSConn"].ConnectionString);
-            sqlCon.Open();
-            SqlCommand Cmd = sqlCon.CreateCommand();
-            string sqlQuery = "";
-            sqlQuery = "IF NOT EXISTS (SELECT * FROM tblSystemCongif WHERE Id = @Id)";
-            sqlQuery += "BEGIN INSERT INTO tblSystemCongif(PartnerAccount,CustomerAccount,CustomerAccount1,CustomerAccount2,MemberAccount,PartnerDiscount,CustomerDiscount) VALUES(@PartnerAccount,@CustomerAccount,@CustomerAccount1, @CustomerAccount2, @MemberAccount,@PartnerDiscount,@CustomerDiscount) END ";
-            sqlQuery += "ELSE BEGIN UPDATE tblSystemCongif SET PartnerAccount = @PartnerAccount,CustomerAccount = @CustomerAccount,CustomerAccount1 = @CustomerAccount1,CustomerAccount2 = @CustomerAccount2,MemberAccount = @MemberAccount,PartnerDiscount = @PartnerDiscount,CustomerDiscount = @CustomerDiscount WHERE Id = @Id END";
-            Cmd.CommandText = sqlQuery;
-            Cmd.Parameters.Add("Id", SqlDbType.Int).Value = 1;
-            Cmd.Parameters.Add("PartnerAccount", SqlDbType.NVarChar).Value = this.txtPartnerAccount.Text;
-            Cmd.Parameters.Add("CustomerAccount", SqlDbType.NVarChar).Value = this.txtCustomerAccount.Text;
-            Cmd.Parameters.Add("CustomerAccount1", SqlDbType.NVarChar).Value = this.txtCustomerAccount1.Text;
-            Cmd.Parameters.Add("CustomerAccount2", SqlDbType.NVarChar).Value = this.txtCustomerAccount2.Text;
-            Cmd.Parameters.Add("MemberAccount", SqlDbType.NVarChar).Value = this.txtMemberAccount.Text;
-            Cmd.Parameters.Add("PartnerDiscount", SqlDbType.Float).Value = this.txtPartnerDiscount.Text;
-            Cmd.Parameters.Add("CustomerDiscount", SqlDbType.Float).Value = this.txtCustomerDiscount.Text;
-            Cmd.ExecuteNonQuery();
-            sqlCon.Close();
-            sqlCon.Dispose();
-            this.lblMsg.Text = "Lưu dữ thiệu thành công !";
         }
         catch
         {
-
+            throw new Exception("Có lổi khi nhập dử liệu . ERROR : 123");
         }
     }
+
     #endregion
 
-    #region method getCustomer
-    public void getCustomer()
+
+    #region method setCustomer
+    public void setCustomer()
     {
-        SqlConnection sqlCon = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["TVSConn"].ConnectionString);
-        sqlCon.Open();
-        SqlCommand Cmd = sqlCon.CreateCommand();
-        Cmd.CommandText = "SELECT * FROM tblSystemCongif WHERE Id = @Id";
-        Cmd.Parameters.Add("Id", SqlDbType.Int).Value = 1;
-        SqlDataReader Rd = Cmd.ExecuteReader();
-        while (Rd.Read())
-        {
-            this.txtPartnerAccount.Text = Rd["PartnerAccount"].ToString();
-            this.txtCustomerAccount.Text = Rd["CustomerAccount"].ToString();
-            this.txtCustomerAccount1.Text = Rd["CustomerAccount1"].ToString();
-            this.txtCustomerAccount2.Text = Rd["CustomerAccount2"].ToString();
-            this.txtMemberAccount.Text = Rd["MemberAccount"].ToString();
-            this.txtPartnerDiscount.Text = Rd["PartnerDiscount"].ToString();
-            this.txtCustomerDiscount.Text = Rd["CustomerDiscount"].ToString();
-        }
-        Rd.Close();
-        sqlCon.Close();
-        sqlCon.Dispose();
+            checkInput();
+      
+         //  int Id    = 1;
+           string PartnerAccount = this.txtPartnerAccount.Text;
+           string CustomerAccount= this.txtCustomerAccount.Text;
+           string CustomerAccount1 = this.txtCustomerAccount1.Text;
+           string CustomerAccount2 = this.txtCustomerAccount2.Text;
+           string MemberAccount  = this.txtMemberAccount.Text;
+
+           float PartnerDiscount  = float.Parse(this.txtPartnerDiscount.Text);      // Sai  số Khi chuyển đổi dử liệu 
+           float  CustomerDiscount =float.Parse(this.txtCustomerDiscount.Text);     // Sai số 
+
+
+           if (sc.saveConfig(PartnerAccount, CustomerAccount, CustomerAccount1, CustomerAccount2, MemberAccount, PartnerDiscount, CustomerDiscount) > 0)
+           {
+               this.lblMsg.Text = "Lưu dữ thiệu thành công !";
+           }
+        else
+           {
+               this.lblMsg.Text = "Lưu dữ thiệu thất bại !";
+
+           }
+
+        
     }
     #endregion
+
+    #region method getCustomer Text, set textBox PlaceHolder
+    public void getCustomer(int Id)
+    {
+       DataTable dt = new DataTable();
+        try{
+                 dt = sc.getCustomer(Id);
+            this.txtPartnerAccount.Text = dt.Rows[0]["PartnerAccount"].ToString();
+            this.txtCustomerAccount.Text =  dt.Rows[0]["CustomerAccount"].ToString();
+            this.txtCustomerAccount1.Text =  dt.Rows[0]["CustomerAccount1"].ToString();
+            this.txtCustomerAccount2.Text =  dt.Rows[0]["CustomerAccount2"].ToString();
+            this.txtMemberAccount.Text =  dt.Rows[0]["MemberAccount"].ToString();
+            this.txtPartnerDiscount.Text =  dt.Rows[0]["PartnerDiscount"].ToString();
+            this.txtCustomerDiscount.Text =  dt.Rows[0]["CustomerDiscount"].ToString();
+        }
+        catch
+        {
+            throw new Exception("Không thể đổ dử liệu với id = " + Id+ "  Error" );
+        }
+        }
+    
+    #endregion
+   
 
     #region method btnSave_Click
     protected void btnSave_Click(object sender, EventArgs e)

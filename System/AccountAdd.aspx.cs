@@ -21,6 +21,9 @@ public partial class System_AccountAdd : System.Web.UI.Page
     #region method btnSave_Click
     protected void btnSave_Click(object sender, EventArgs e)
     {
+
+
+
         string UserName = this.txtUserName.Value;
         string Password = this.txtPassWord.Value;
 

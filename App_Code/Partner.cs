@@ -7,6 +7,7 @@ using System.Web;
 
 public class Partner
 {
+   
     #region method Partner
     public Partner()
     {
@@ -78,7 +79,7 @@ public class Partner
     }
     #endregion
 
-
+    
     #region method setCustomersPaymentByCard
     public int setCustomersPaymentByCard(string BillId, float TotalMoney, string CustomerAccount)
     {
@@ -419,6 +420,49 @@ public class Partner
         }
         return TotalMoney;
     }
+    #endregion
+
+    #region 
+    //public DataTable getPartner(string account)
+    //{
+       
+    //    DataTable objTable = this.getPartnerInforByAccount(Session["ACCOUNT"].ToString());
+
+    //    if (objTable.Rows.Count > 0)
+    //    {
+    //        this.strName = objTable.Rows[0]["Name"].ToString();
+    //        this.strAddress = objTable.Rows[0]["Address"].ToString();
+    //        this.strManager = objTable.Rows[0]["Manager"].ToString();
+    //        this.strPhone = objTable.Rows[0]["Phone"].ToString();
+    //        this.strEmail = objTable.Rows[0]["Email"].ToString();
+    //        this.strTaxcode = objTable.Rows[0]["TaxCode"].ToString();
+    //        this.strAccount = objTable.Rows[0]["Account"].ToString();
+
+    //        this.strDiscount = objTable.Rows[0]["Discount"].ToString();
+    //        this.strDiscountCard = objTable.Rows[0]["DiscountCard"].ToString();
+    //        this.strDiscountAdv = objTable.Rows[0]["DiscountAdv"].ToString();
+
+    //        if (objTable.Rows[0]["BestSale"].ToString() == "True")
+    //        {
+    //            this.strBestSale = "X";
+    //        }
+    //        else
+    //        {
+    //            this.strBestSale = "";
+    //        }
+    //        if (objTable.Rows[0]["VIP"].ToString() == "True")
+    //        {
+    //            this.strVIP = "X";
+    //        }
+    //        else
+    //        {
+    //            this.strVIP = "";
+    //        }
+    //    }
+       
+
+
+    //}
     #endregion
 
 }

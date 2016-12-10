@@ -1,4 +1,4 @@
-﻿<%@ Page Title="QUẢN LÝ BANNER" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Video.aspx.cs" Inherits="Video" %>
+﻿<%@ Page Title="QUẢN LÝ VIDEO" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Video.aspx.cs" Inherits="Video" %>
 
 <%@ Register TagPrefix="cc1" Namespace="SiteUtils" Assembly="CollectionPager" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
@@ -22,7 +22,8 @@
                  <tr>   
                     <td style="text-align: center; vertical-align: middle; font-family: Arial; font-size: 15px; color: #000; background-color: #FFF; width: 100%;">
                         <div style="float: left; display: table-cell; line-height: 160px; width: 100%; height: 165px; text-align: center; vertical-align: middle; font-size: 15px; margin-top:10px;">
-                                <%# Eval("Url") %>
+                            <iframe width="200" height="150"
+                                src="<%# Eval("Url") %>"></iframe>
                         </div>
                     </td>
                 </tr>
